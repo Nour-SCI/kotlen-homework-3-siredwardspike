@@ -13,23 +13,25 @@ plugins {
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
-allprojects {
+subprojects {
     repositories {
         mavenCentral()
     }
 
-    dependencies {
-        implementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
-        runtimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
-        runtimeOnly("org.junit.platform:junit-platform-console:1.9.0")
-    }
+    plugins.withId("org.jetbrains.kotlin.jvm") {
+        dependencies {
+            implementation(libs.junit.api)
+            runtimeOnly(libs.junit.engine)
+            runtimeOnly(libs.junit.console)
+        }
 
-    tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
-    }
+        tasks.withType<KotlinCompile> {
+            kotlinOptions.jvmTarget = "1.8"
+        }
 
-    configureDiktat()
-    configureDetekt()
+        configureDiktat()
+        configureDetekt()
+    }
 }
 
 createDiktatTask()
