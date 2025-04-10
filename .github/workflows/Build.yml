@@ -4,7 +4,7 @@ on: [ pull_request ]
 
 jobs:
   diktat:
-    runs-on: ubuntu-latest
+    runs-on: uuntu-latest
 
     steps:
       - uses: actions/checkout@v3.0.0
