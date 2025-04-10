@@ -15,7 +15,8 @@ jobs:
           java-version: 11
           distribution: liberica
 
-
+      - name: Make gradlew executable
+        run: chmod +x gradlew
 
       - name: Gradle Wrapper Validation
         uses: gradle/wrapper-validation-action@v1.0.4
