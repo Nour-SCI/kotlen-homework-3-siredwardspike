@@ -8,6 +8,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id(libs.plugins.kotlin.jvm.get().pluginId)
     alias(libs.plugins.buildconfig) apply false
+    id("io.gitlab.arturbosch.detekt") version "1.20.0"
 }
 
 group = "org.example"
@@ -24,6 +25,7 @@ subprojects {
             runtimeOnly(libs.junit.engine)
             runtimeOnly(libs.junit.console)
         }
+
 
         tasks.withType<KotlinCompile> {
             kotlinOptions.jvmTarget = "1.8"
