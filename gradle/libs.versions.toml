@@ -1,9 +1,19 @@
 [versions]
 kotlin = "1.7.21"
 buildconfig = "3.0.3"
+junit = "5.9.0"
+junit-platform = "1.9.0"
 
 [libraries]
+junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junit-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit" }
+junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+junit-console = { module = "org.junit.platform:junit-platform-console", version.ref = "junit-platform" }
+implementation = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+testImplementation = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit" }
+testRuntimeOnly = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 
 [plugins]
 buildconfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildconfig" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+
